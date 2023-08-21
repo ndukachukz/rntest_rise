@@ -4,19 +4,21 @@ import type {RootState} from '../../store';
 
 const initialState: AuthSlice = {
   user: undefined,
+  token: undefined,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<User>) => {
-      state.user = action.payload;
+    setCrendentials: (state, action: PayloadAction<AuthSlice>) => {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
     },
   },
 });
 
-export const {setUser} = authSlice.actions;
+export const {setCrendentials} = authSlice.actions;
 
 export const selectAuth = (state: RootState) => state.auth.user;
 

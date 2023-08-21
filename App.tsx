@@ -8,13 +8,16 @@
 import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import {AppNavigation} from './src/navigation';
+import {AppProvider} from './src/store';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={'default'} />
-      <AppNavigation />
-    </SafeAreaView>
+    <AppProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle={'default'} />
+        <AppNavigation />
+      </SafeAreaView>
+    </AppProvider>
   );
 }
 
