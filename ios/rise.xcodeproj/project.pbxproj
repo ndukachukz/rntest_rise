@@ -14,6 +14,18 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-rise-riseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-rise-riseTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		420B839EA4E54B4EAC549144 /* FamiljenGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5439BF6618A642B4940F3963 /* FamiljenGrotesk-Bold.ttf */; };
+		CE2592D4F45B4BB98A264D55 /* FamiljenGrotesk-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B7A264310BE4E21B9441257 /* FamiljenGrotesk-BoldItalic.ttf */; };
+		3848D56C722B4295BF4F12D6 /* FamiljenGrotesk-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B743907E774EFA8C3B6CD3 /* FamiljenGrotesk-Italic-VariableFont_wght.ttf */; };
+		34338D961DE64D1FA511EABA /* FamiljenGrotesk-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 459FB814C21C4BBF9ABE67F8 /* FamiljenGrotesk-Italic.ttf */; };
+		2BAEEF1B1C0944CE8A7BB0D8 /* FamiljenGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0869DB6AC92400BBABAE36D /* FamiljenGrotesk-Medium.ttf */; };
+		A2454588063A48C684FB7D2C /* FamiljenGrotesk-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E0617A6F6F74E12B377D1BA /* FamiljenGrotesk-MediumItalic.ttf */; };
+		A8F7B9413F80422BB9C8F79B /* FamiljenGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9328E7433D14E028EE5D3CD /* FamiljenGrotesk-Regular.ttf */; };
+		6874E78805B546D691DC7A4A /* FamiljenGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4722C801EC234579B6B6208C /* FamiljenGrotesk-SemiBold.ttf */; };
+		5B3C3099C01342DC84D06FEF /* FamiljenGrotesk-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C9B4EB7F9B43D59513D58B /* FamiljenGrotesk-SemiBoldItalic.ttf */; };
+		80B613852D6148DABBF71C34 /* FamiljenGrotesk-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715D5708BCD6427C9EA92F64 /* FamiljenGrotesk-VariableFont_wght.ttf */; };
+		97412AE8E96440F7AF36B0E5 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39D00A133E8E40888B16F560 /* DMSans-Bold.ttf */; };
+		9CCE2023BAAB4EAFB9F9FD69 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBBA90E2F69E45A69ECBBF36 /* DMSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +56,18 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = rise/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-rise-riseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseTests.release.xcconfig"; path = "Target Support Files/Pods-rise-riseTests/Pods-rise-riseTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		5439BF6618A642B4940F3963 /* FamiljenGrotesk-Bold.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-Bold.ttf"; path = "../assets/fonts/FamiljenGrotesk-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2B7A264310BE4E21B9441257 /* FamiljenGrotesk-BoldItalic.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-BoldItalic.ttf"; path = "../assets/fonts/FamiljenGrotesk-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F5B743907E774EFA8C3B6CD3 /* FamiljenGrotesk-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-Italic-VariableFont_wght.ttf"; path = "../assets/fonts/FamiljenGrotesk-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		459FB814C21C4BBF9ABE67F8 /* FamiljenGrotesk-Italic.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-Italic.ttf"; path = "../assets/fonts/FamiljenGrotesk-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F0869DB6AC92400BBABAE36D /* FamiljenGrotesk-Medium.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-Medium.ttf"; path = "../assets/fonts/FamiljenGrotesk-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1E0617A6F6F74E12B377D1BA /* FamiljenGrotesk-MediumItalic.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-MediumItalic.ttf"; path = "../assets/fonts/FamiljenGrotesk-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E9328E7433D14E028EE5D3CD /* FamiljenGrotesk-Regular.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-Regular.ttf"; path = "../assets/fonts/FamiljenGrotesk-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4722C801EC234579B6B6208C /* FamiljenGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-SemiBold.ttf"; path = "../assets/fonts/FamiljenGrotesk-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		38C9B4EB7F9B43D59513D58B /* FamiljenGrotesk-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-SemiBoldItalic.ttf"; path = "../assets/fonts/FamiljenGrotesk-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		715D5708BCD6427C9EA92F64 /* FamiljenGrotesk-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "FamiljenGrotesk-VariableFont_wght.ttf"; path = "../assets/fonts/FamiljenGrotesk-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		39D00A133E8E40888B16F560 /* DMSans-Bold.ttf */ = {isa = PBXFileReference; name = "DMSans-Bold.ttf"; path = "../assets/fonts/DMSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CBBA90E2F69E45A69ECBBF36 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; name = "DMSans-Regular.ttf"; path = "../assets/fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +146,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				2EB35EB0B5BB40A59B8B7659 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +172,26 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		2EB35EB0B5BB40A59B8B7659 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				5439BF6618A642B4940F3963 /* FamiljenGrotesk-Bold.ttf */,
+				2B7A264310BE4E21B9441257 /* FamiljenGrotesk-BoldItalic.ttf */,
+				F5B743907E774EFA8C3B6CD3 /* FamiljenGrotesk-Italic-VariableFont_wght.ttf */,
+				459FB814C21C4BBF9ABE67F8 /* FamiljenGrotesk-Italic.ttf */,
+				F0869DB6AC92400BBABAE36D /* FamiljenGrotesk-Medium.ttf */,
+				1E0617A6F6F74E12B377D1BA /* FamiljenGrotesk-MediumItalic.ttf */,
+				E9328E7433D14E028EE5D3CD /* FamiljenGrotesk-Regular.ttf */,
+				4722C801EC234579B6B6208C /* FamiljenGrotesk-SemiBold.ttf */,
+				38C9B4EB7F9B43D59513D58B /* FamiljenGrotesk-SemiBoldItalic.ttf */,
+				715D5708BCD6427C9EA92F64 /* FamiljenGrotesk-VariableFont_wght.ttf */,
+				39D00A133E8E40888B16F560 /* DMSans-Bold.ttf */,
+				CBBA90E2F69E45A69ECBBF36 /* DMSans-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +289,18 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				420B839EA4E54B4EAC549144 /* FamiljenGrotesk-Bold.ttf in Resources */,
+				CE2592D4F45B4BB98A264D55 /* FamiljenGrotesk-BoldItalic.ttf in Resources */,
+				3848D56C722B4295BF4F12D6 /* FamiljenGrotesk-Italic-VariableFont_wght.ttf in Resources */,
+				34338D961DE64D1FA511EABA /* FamiljenGrotesk-Italic.ttf in Resources */,
+				2BAEEF1B1C0944CE8A7BB0D8 /* FamiljenGrotesk-Medium.ttf in Resources */,
+				A2454588063A48C684FB7D2C /* FamiljenGrotesk-MediumItalic.ttf in Resources */,
+				A8F7B9413F80422BB9C8F79B /* FamiljenGrotesk-Regular.ttf in Resources */,
+				6874E78805B546D691DC7A4A /* FamiljenGrotesk-SemiBold.ttf in Resources */,
+				5B3C3099C01342DC84D06FEF /* FamiljenGrotesk-SemiBoldItalic.ttf in Resources */,
+				80B613852D6148DABBF71C34 /* FamiljenGrotesk-VariableFont_wght.ttf in Resources */,
+				97412AE8E96440F7AF36B0E5 /* DMSans-Bold.ttf in Resources */,
+				9CCE2023BAAB4EAFB9F9FD69 /* DMSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

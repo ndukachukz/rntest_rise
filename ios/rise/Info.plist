@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,20 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FamiljenGrotesk-Bold.ttf</string>
+		<string>FamiljenGrotesk-BoldItalic.ttf</string>
+		<string>FamiljenGrotesk-Italic-VariableFont_wght.ttf</string>
+		<string>FamiljenGrotesk-Italic.ttf</string>
+		<string>FamiljenGrotesk-Medium.ttf</string>
+		<string>FamiljenGrotesk-MediumItalic.ttf</string>
+		<string>FamiljenGrotesk-Regular.ttf</string>
+		<string>FamiljenGrotesk-SemiBold.ttf</string>
+		<string>FamiljenGrotesk-SemiBoldItalic.ttf</string>
+		<string>FamiljenGrotesk-VariableFont_wght.ttf</string>
+		<string>DMSans-Bold.ttf</string>
+		<string>DMSans-Regular.ttf</string>
+	</array>
 </dict>
 </plist>
