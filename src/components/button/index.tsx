@@ -7,7 +7,7 @@ import {
   TextProps,
   StyleSheet,
 } from 'react-native';
-import {FONTS, scale, scaleHeight} from '../../constants';
+import {COLORS, FONTS, scale, scaleHeight} from '../../constants';
 
 interface Props {
   title?: string;
@@ -27,7 +27,11 @@ const Button = ({
   return (
     <TouchableOpacity
       {...touchableProps}
-      style={[styles.container, containerStyle]}>
+      style={[
+        styles.container,
+        containerStyle,
+        touchableProps.disabled && {backgroundColor: COLORS.TEAL_DISABLED},
+      ]}>
       {iconLeft}
       {title && (
         <Text {...textProps} style={[styles.buttonText, textStyle]}>
@@ -50,9 +54,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(15),
     borderRadius: scale(5),
     gap: scale(16),
+    backgroundColor: COLORS.TEAL,
   },
   buttonText: {
     fontFamily: FONTS.DM_SANS_BOLD,
     fontSize: scale(15),
+    color: COLORS.WHITE,
   },
 });

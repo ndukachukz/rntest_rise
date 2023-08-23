@@ -1,5 +1,6 @@
 import React, {ReactNode} from 'react';
 import {View, Text, ViewProps, TextProps, Image, FlatList} from 'react-native';
+import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 
 import globalStyles from '../../styles';
 import styles from './styles';
@@ -14,8 +15,19 @@ interface Slide {
   subTitle: string;
   subTitleStyle: TextProps['style'];
   activeColor?: string;
-  footerActions?(props: Slide & {activeIndex?: number}): React.JSX.Element;
+  footerActions?(
+    props: Slide & {activeIndex?: number; navigation: Props['navigation']},
+  ): React.JSX.Element;
 }
+
+type ProfileScreenNavigationProp = NativeStackNavigationProp<
+  PublicStackNavigator,
+  'Onboarding'
+>;
+
+type Props = {
+  navigation: ProfileScreenNavigationProp;
+};
 
 const slides: Slide[] = [
   {
@@ -118,12 +130,15 @@ const slides: Slide[] = [
       color: COLORS.TEAL,
     },
     activeColor: COLORS.LIGHT_TEAL,
-    footerActions: () => (
+    footerActions: ({navigation}) => (
       <View style={[styles.buttonColContainer]}>
         <Button
           touchableProps={{
             style: {
               backgroundColor: COLORS.TEAL,
+            },
+            onPress: () => {
+              navigation.navigate('SignUp');
             },
           }}
           textProps={{style: {color: COLORS.WHITE}}}
@@ -153,7 +168,7 @@ const Indicator = ({
   );
 };
 
-const Onboarding = () => {
+const Onboarding = ({navigation}: Props) => {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const isLastSlide = activeIndex === slides.length - 1;
   return (
@@ -194,7 +209,8 @@ const Onboarding = () => {
               <Text style={[styles.subTitle]}>{item.subTitle}</Text>
             </View>
 
-            {item.footerActions && item.footerActions({...item, activeIndex})}
+            {item.footerActions &&
+              item.footerActions({...item, activeIndex, navigation})}
           </View>
         );
       }}

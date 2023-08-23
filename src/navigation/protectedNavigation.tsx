@@ -1,12 +1,16 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import {createNativeStackNavigator} from 'react-native-screens/native-stack';
+import {useAppSelector} from '../hooks';
 
-const AuthNavigation = () => {
+const Stack = createNativeStackNavigator<ProtectedStackNavigator>();
+
+const ProtectedNavigator = () => {
+  const app = useAppSelector(state => state.app);
   return (
-    <View>
-      <Text>AuthNavigation</Text>
-    </View>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <></>
+    </Stack.Navigator>
   );
 };
 
-export default AuthNavigation;
+export default ProtectedNavigator;

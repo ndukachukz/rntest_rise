@@ -13,8 +13,8 @@ import {AppProvider} from './src/store';
 function App(): JSX.Element {
   return (
     <AppProvider>
+      <StatusBar barStyle={'default'} />
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle={'default'} />
         <AppNavigation />
       </SafeAreaView>
     </AppProvider>
@@ -24,6 +24,7 @@ function App(): JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: StatusBar.currentHeight && -StatusBar?.currentHeight,
   },
 });
 

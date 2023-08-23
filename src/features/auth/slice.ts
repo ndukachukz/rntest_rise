@@ -5,6 +5,7 @@ import type {RootState} from '../../store';
 const initialState: AuthSlice = {
   user: undefined,
   token: undefined,
+  signupCredentials: undefined,
 };
 
 export const authSlice = createSlice({
@@ -15,10 +16,16 @@ export const authSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
     },
+    setSignupCredentials: (
+      state,
+      action: PayloadAction<Partial<SignUpRequest>>,
+    ) => {
+      state.signupCredentials = action.payload;
+    },
   },
 });
 
-export const {setCrendentials} = authSlice.actions;
+export const {setCrendentials, setSignupCredentials} = authSlice.actions;
 
 export const selectAuth = (state: RootState) => state.auth.user;
 

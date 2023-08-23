@@ -1,14 +1,21 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
-import Onboarding from '../screens/Onboarding';
+import {
+  OnboardingScreen,
+  ProfileSetup,
+  SignupScreen,
+  SignupSuccess,
+} from '../screens';
 
 const Stack = createNativeStackNavigator<PublicStackNavigator>();
 
 const PublicNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Onboarding" component={Onboarding} />
+      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+      <Stack.Screen name="SignUp" component={SignupScreen} />
+      <Stack.Screen name="ProfileSetup" component={ProfileSetup} />
+      <Stack.Screen name="SignupSuccess" component={SignupSuccess} />
     </Stack.Navigator>
   );
 };

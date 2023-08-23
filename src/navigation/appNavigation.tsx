@@ -1,14 +1,14 @@
 import 'react-native-gesture-handler';
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 
 import {ProtectedNavigation, PublicNavigation} from '.';
 import SplashScreen from '../screens/Splash';
+import {useAppSelector} from '../hooks';
 
 const AppNavigation = () => {
   const [showSplash, setShowSplash] = useState(true);
-  const [user] = useState(null);
+  const authToken = useAppSelector(state => state.auth.token);
 
   setTimeout(() => {
     setShowSplash(false);
@@ -20,7 +20,7 @@ const AppNavigation = () => {
 
   return (
     <NavigationContainer>
-      <PublicNavigation />
+      {authToken ? <ProtectedNavigation /> : <PublicNavigation />}
     </NavigationContainer>
   );
 };
