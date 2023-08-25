@@ -74,8 +74,6 @@ run `yarn build:apk` or follow the steps below.
    rise/android/app/build/outputs/apk/release/app-release.apk
    ```
 
-   Replace `rise` with your actual project's directory name.
-
 ---
 
 ## 3. Locating Built APK Files <a name="locating-built-apk-files"></a>
@@ -83,8 +81,6 @@ run `yarn build:apk` or follow the steps below.
 After building the APK, you can easily locate the generated APK files using the file paths provided in the previous section:
 
 - For release APK: `rise/android/app/build/outputs/apk/release/app-release.apk`
-
-Remember to replace `rise` with the actual name of your project's directory.
 
 ---
 
