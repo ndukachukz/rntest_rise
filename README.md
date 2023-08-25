@@ -1,4 +1,4 @@
-# React Native Application Documentation
+# Rise Dev Test React Native Documentation
 
 Welcome to the documentation for the React Native application! This guide will cover essential processes such as clearing cache, building the APK, and locating the built APK files.
 
