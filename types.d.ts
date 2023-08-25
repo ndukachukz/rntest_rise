@@ -57,6 +57,7 @@ type SignUpUserResponse = Pick<
   | 'phone_number'
   | 'created_at'
   | 'date_of_birth'
+  | 'token'
 >;
 
 interface AuthSlice {

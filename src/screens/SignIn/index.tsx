@@ -10,9 +10,8 @@ import useFormValidation from '../../hooks/useSignupFormValidator';
 import {COLORS, scale} from '../../constants';
 import FormContainer from '../../components/form/FormContainer';
 import {useSignInMutation} from '../../services/authApi';
-import {setErrorModal} from '../../features/app/slice';
 import {useAppDispatch} from '../../hooks';
-import {setCrendentials} from '../../features/auth/slice';
+import {setToken} from '../../features/auth/slice';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<
   PublicStackNavigator,
@@ -59,8 +58,7 @@ const SignIn = ({navigation}: Props) => {
           type: 'success',
           text1: "You've signed in successfully",
         });
-        console.log('=> ', res);
-        dispatch(setCrendentials(res));
+        dispatch(setToken(res.token));
       })
       .catch(error => {
         if (error.status < 500) {
