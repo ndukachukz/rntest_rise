@@ -148,6 +148,9 @@ const slides: Slide[] = [
           title="Sign In"
           touchableProps={{
             style: {backgroundColor: COLORS.OFF_WHITE},
+            onPress: () => {
+              navigation.navigate('SignIn');
+            },
           }}
           textProps={{style: {color: COLORS.TEAL}}}
         />
