@@ -127,17 +127,9 @@ export const SearchIconSvg = ({color = COLORS.TEAL, ...props}: IconProps) => {
   );
 };
 
-export const CheckRoundedSvg = ({color = COLORS.TEAL, ...props}: IconProps) => {
+export const CheckSvg = ({color = COLORS.TEAL, ...props}: IconProps) => {
   return (
-    <Svg width="91" height="90" viewBox="0 0 91 90" fill="none">
-      <Rect
-        x="0.5"
-        width="90"
-        height="90"
-        rx="45"
-        fill="#71879C"
-        fill-opacity="0.1"
-      />
+    <Svg width="91" height="90" viewBox="0 0 91 90" fill="none" {...props}>
       <Path
         d="M28.3647 46.6629L38.4983 55.3704L62.6355 34.6294"
         stroke={color}

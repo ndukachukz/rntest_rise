@@ -8,14 +8,16 @@ import {
 } from 'react-native';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 
+import Toast from 'react-native-toast-message';
 import globalStyles from '../../styles/index';
 import {BASE_HORIZONTAL_PADDING, COLORS, FONTS, scale} from '../../constants';
 import {Button, Input} from '../../components';
 import useFormValidation from '../../hooks/useProfileSetupFormValidator';
-import {useAppSelector} from '../../hooks';
+import {useAppDispatch, useAppSelector} from '../../hooks';
 import PhoneInput from '../../components/form/phoneInput';
 import DatePicker from '../../components/form/datePicker';
 import {useSignUpMutation} from '../../services/authApi';
+import {clearAppState} from '../../features/app/slice';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<
   PublicStackNavigator,
@@ -29,23 +31,38 @@ type Props = {
 const ProfileSetup = ({navigation}: Props) => {
   const {formData, handleChange, isFormValid, formErrors} = useFormValidation();
   const [signup, {isLoading}] = useSignUpMutation();
+  const dispatch = useAppDispatch();
 
   const signupCredentials = useAppSelector(
     state => state.auth.signupCredentials,
   );
 
   const onSignup = () => {
-    console.log({...formData, ...signupCredentials});
     const req = {...formData, ...signupCredentials} as any;
     signup(req)
       .unwrap()
       .then(res => {
-        console.log('SIGNUP RES => ', res);
+        Toast.show({
+          type: 'success',
+          text1: "You've signed in successfully",
+        });
+        dispatch(clearAppState());
         navigation.navigate('SignupSuccess');
       })
       .catch(error => {
-        // *TODO: Catch unhandled http/server exceptions with sentry or firebase logger
-        console.log('SIGNUP ERROR => ', error);
+        if (error.status < 500) {
+          Toast.show({
+            type: 'error',
+            text1: error.data.message,
+          });
+        }
+        if (error.status >= 500) {
+          // we dont want to show server errors to users
+          Toast.show({
+            type: 'error',
+            text1: 'An error has occurred. Please try again in few Minutes',
+          });
+        }
       });
   };
 

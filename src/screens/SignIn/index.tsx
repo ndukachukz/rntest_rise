@@ -1,15 +1,18 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import Toast from 'react-native-toast-message';
 
 import globalStyles from '../../styles/index';
 import formStyles from '../SignUp/styles';
 import {Button, HidePassSvg, Input, ShowPassSvg} from '../../components';
 import useFormValidation from '../../hooks/useSignupFormValidator';
-import {useAppDispatch} from '../../hooks';
-import {setSignupCredentials} from '../../features/auth/slice';
 import {COLORS, scale} from '../../constants';
 import FormContainer from '../../components/form/FormContainer';
+import {useSignInMutation} from '../../services/authApi';
+import {setErrorModal} from '../../features/app/slice';
+import {useAppDispatch} from '../../hooks';
+import {setCrendentials} from '../../features/auth/slice';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<
   PublicStackNavigator,
@@ -45,12 +48,35 @@ const PasswordIcon = ({
 const SignIn = ({navigation}: Props) => {
   const {formData, handleChange, formErrors, isFormValid} = useFormValidation();
   const [showPassword, setShowPassword] = React.useState(true);
-
+  const [signIn, {isLoading}] = useSignInMutation();
   const dispatch = useAppDispatch();
 
   const handleSubmit = () => {
-    dispatch(setSignupCredentials(formData));
-    navigation.navigate('ProfileSetup');
+    signIn(formData)
+      .unwrap()
+      .then(res => {
+        Toast.show({
+          type: 'success',
+          text1: "You've signed in successfully",
+        });
+        console.log('=> ', res);
+        dispatch(setCrendentials(res));
+      })
+      .catch(error => {
+        if (error.status < 500) {
+          Toast.show({
+            type: 'error',
+            text1: error.data.message,
+          });
+        }
+        if (error.status >= 500) {
+          // we dont want to show server errors to users
+          Toast.show({
+            type: 'error',
+            text1: 'An error has occurred. Please try again in few Minutes',
+          });
+        }
+      });
   };
 
   return (
@@ -124,7 +150,7 @@ const SignIn = ({navigation}: Props) => {
           title="Sign In"
           textProps={{}}
           touchableProps={{
-            disabled: !isFormValid,
+            disabled: !isFormValid || isLoading,
             onPress: handleSubmit,
           }}
         />

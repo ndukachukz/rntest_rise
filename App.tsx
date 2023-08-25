@@ -7,6 +7,8 @@
 
 import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import Toast from 'react-native-toast-message';
+
 import {AppNavigation} from './src/navigation';
 import {AppProvider} from './src/store';
 
@@ -16,6 +18,7 @@ function App(): JSX.Element {
       <StatusBar barStyle={'default'} />
       <SafeAreaView style={styles.container}>
         <AppNavigation />
+        <Toast />
       </SafeAreaView>
     </AppProvider>
   );

@@ -14,7 +14,9 @@ type PublicStackNavigator = {
   ProfileSetup: undefined;
   SignupSuccess: undefined;
 };
-type ProtectedStackNavigator = {};
+type ProtectedStackNavigator = {
+  Home: undefined;
+};
 
 interface User {
   id: string;
@@ -76,5 +78,10 @@ type SignUpRequest = Pick<
 >;
 
 type DynamicApp = {
-  [key: string]: string;
+  [key: string]: any;
 };
+
+type InfoModalData = {
+  message: string;
+  title: string;
+} | null;
