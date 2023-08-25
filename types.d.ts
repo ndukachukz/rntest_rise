@@ -10,6 +10,7 @@ type Countries = Country[];
 type PublicStackNavigator = {
   Onboarding: undefined;
   SignUp: undefined;
+  SignIn: undefined;
   ProfileSetup: undefined;
   SignupSuccess: undefined;
 };

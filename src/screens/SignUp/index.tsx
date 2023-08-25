@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, KeyboardAvoidingView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from 'react-native';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 
 import globalStyles from '../../styles/index';
@@ -14,6 +21,8 @@ import {
 import useFormValidation from '../../hooks/useSignupFormValidator';
 import {useAppDispatch} from '../../hooks';
 import {setSignupCredentials} from '../../features/auth/slice';
+import {COLORS, scale} from '../../constants';
+import FormContainer from '../../components/form/FormContainer';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<
   PublicStackNavigator,
@@ -59,77 +68,85 @@ const SignUp = ({navigation}: Props) => {
   };
 
   return (
-    <KeyboardAvoidingView style={[globalStyles.container, styles.container]}>
-      <View style={styles.textContainer}>
-        <Text style={globalStyles.heading}>Create an account</Text>
-        <Text style={globalStyles.subHeading}>
-          Start building your dollar-denominated investment portfolio
-        </Text>
-      </View>
-
-      <View style={styles.formContainer}>
-        <View>
-          <Input
-            label="Email Address"
-            textInputProps={{
-              value: formData.email_address,
-              onChangeText: text => handleChange('email_address', text),
-              keyboardType: 'email-address',
-            }}
-            labelProps={{}}
-          />
-          <Text style={globalStyles.inputError}>
-            {formErrors.email_address}
+    <FormContainer
+      style={[{flex: 1, justifyContent: 'space-evenly'}, styles.container]}>
+      <View style={{gap: scale(40)}}>
+        <View style={styles.textContainer}>
+          <Text style={globalStyles.heading}>Create an account</Text>
+          <Text style={globalStyles.subHeading}>
+            Start building your dollar-denominated investment portfolio
           </Text>
         </View>
-        <Input
-          label="Password"
-          textInputProps={{
-            value: formData.password,
-            onChangeText: text => handleChange('password', text),
-            secureTextEntry: showPassword,
-            textContentType: 'newPassword',
-          }}
-          iconRight={({}) => (
-            <PasswordIcon
-              showPass={showPassword}
-              handleToggle={() => setShowPassword(!showPassword)}
+        <View style={[styles.formContainer]}>
+          <View>
+            <Input
+              label="Email Address"
+              textInputProps={{
+                value: formData.email_address,
+                onChangeText: text => handleChange('email_address', text),
+                keyboardType: 'email-address',
+              }}
+              labelProps={{}}
             />
-          )}
-          labelProps={{}}
-        />
-
-        <View style={styles.passRuleContainer}>
-          <View style={styles.passRule}>
-            <View style={styles.passRuleCheckContainer}>
-              {passwordRules.passHasMinLen && <RoundedCheck />}
-            </View>
-            <Text>Minimum of 8 characters</Text>
+            <Text style={globalStyles.inputError}>
+              {formErrors.email_address}
+            </Text>
           </View>
-          <View style={styles.passRule}>
-            <View style={styles.passRuleCheckContainer}>
-              {passwordRules.passHasUpper && <RoundedCheck />}
+          <Input
+            label="Password"
+            textInputProps={{
+              value: formData.password,
+              onChangeText: text => handleChange('password', text),
+              secureTextEntry: showPassword,
+              textContentType: 'newPassword',
+            }}
+            iconRight={({}) => (
+              <PasswordIcon
+                showPass={showPassword}
+                handleToggle={() => setShowPassword(!showPassword)}
+              />
+            )}
+            labelProps={{}}
+          />
+          <View style={[styles.passRuleContainer]}>
+            <View style={styles.passRule}>
+              <View style={styles.passRuleCheckContainer}>
+                {passwordRules.passHasMinLen && <RoundedCheck />}
+              </View>
+              <Text>Minimum of 8 characters</Text>
             </View>
-            <Text>One UPPERCASE character</Text>
-          </View>
-          <View style={styles.passRule}>
-            <View style={[styles.passRuleCheckContainer]}>
-              {passwordRules.passHasSpecialChar && <RoundedCheck />}
+            <View style={styles.passRule}>
+              <View style={styles.passRuleCheckContainer}>
+                {passwordRules.passHasUpper && <RoundedCheck />}
+              </View>
+              <Text>One UPPERCASE character</Text>
             </View>
-            <Text>One unique character (e.g: !@#$%^&*?)</Text>
+            <View style={styles.passRule}>
+              <View style={[styles.passRuleCheckContainer]}>
+                {passwordRules.passHasSpecialChar && <RoundedCheck />}
+              </View>
+              <Text>One unique character (e.g: !@#$%^&*?)</Text>
+            </View>
           </View>
         </View>
+        <Button
+          title="Sign Up"
+          textProps={{}}
+          touchableProps={{
+            disabled: !isFormValid,
+            onPress: handleSubmit,
+          }}
+        />
       </View>
-
-      <Button
-        title="Sign Up"
-        textProps={{}}
-        touchableProps={{
-          disabled: !isFormValid,
-          onPress: handleSubmit,
-        }}
-      />
-    </KeyboardAvoidingView>
+      <Text style={styles.footerText}>
+        Have an account?{' '}
+        <Text
+          style={{color: COLORS.TEAL}}
+          onPress={() => navigation.navigate('SignIn')}>
+          Sign In
+        </Text>
+      </Text>
+    </FormContainer>
   );
 };
 

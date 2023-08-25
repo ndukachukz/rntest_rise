@@ -11,11 +11,12 @@ const styles = StyleSheet.create({
     gap: scale(11),
   },
   formContainer: {
-    gap: scale(37),
+    gap: scale(15),
     paddingVertical: scale(5),
   },
   passRuleContainer: {
     gap: scale(12),
+    marginVertical: scale(15),
   },
   passRule: {
     flexDirection: 'row',
@@ -35,6 +36,13 @@ const styles = StyleSheet.create({
     height: scale(16),
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  footerText: {
+    fontFamily: FONTS.DM_SANS,
+    fontSize: scale(15),
+    color: COLORS.SOFT_TECT,
+    textAlign: 'center',
   },
 });
 

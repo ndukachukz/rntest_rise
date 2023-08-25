@@ -1,79 +1,95 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Application Documentation
 
-# Getting Started
+Welcome to the documentation for the React Native application! This guide will cover essential processes such as clearing cache, building the APK, and locating the built APK files.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Table of Contents
 
-## Step 1: Start the Metro Server
+1. [Clearing Cache](#clearing-cache)
+2. [Building APK](#building-apk)
+3. [Locating Built APK Files](#locating-built-apk-files)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+---
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## 1. Clearing Cache <a name="clearing-cache"></a>
 
-```bash
-# using npm
-npm start
+Clearing the cache can resolve various issues that might arise during the development and testing of your React Native application. Follow these steps to clear the cache:
 
-# OR using Yarn
-yarn start
-```
+1. **Clear Metro Bundler Cache**:
 
-## Step 2: Start your Application
+   To clear the Metro Bundler cache, run the following command in your project's root directory:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+   ```bash
+   npx react-native start --reset-cache
+   ```
 
-### For Android
+2. **Clear Android Build Cache**:
 
-```bash
-# using npm
-npm run android
+   If you're encountering issues related to the Android build, you can clear the Android build cache by running the following command:
 
-# OR using Yarn
-yarn android
-```
+   ```bash
+   cd android && ./gradlew clean
+   ```
 
-### For iOS
+3. **Clear iOS Build Cache**:
 
-```bash
-# using npm
-npm run ios
+   For iOS, you can clear the build cache by deleting the `DerivedData` folder. The path is generally:
 
-# OR using Yarn
-yarn ios
-```
+   ```
+   ~/Library/Developer/Xcode/DerivedData/
+   ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+   Delete the contents of the `DerivedData` folder.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+---
 
-## Step 3: Modifying your App
+## 2. Building APK <a name="building-apk"></a>
 
-Now that you have successfully run the app, let's modify it.
+Building the APK (Android Package) is an important step in preparing your React Native app for distribution or testing on Android devices. Here's how you can build the APK:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+run `yarn build:apk` or follow the steps below.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+1. **Navigate to the Android Directory**:
 
-## Congratulations! :tada:
+   Open your terminal and navigate to the `android` directory of your React Native project:
 
-You've successfully run and modified your React Native App. :partying_face:
+   ```bash
+   cd android
+   ```
 
-### Now what?
+2. **Build the APK**:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+   To build the APK, use the following Gradle command:
 
-# Troubleshooting
+   ```bash
+   ./gradlew assembleRelease
+   ```
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+   This command will trigger the build process and create the APK file.
 
-# Learn More
+3. **Generated APK Location**:
 
-To learn more about React Native, take a look at the following resources:
+   Once the build process is complete, you can find the generated APK file at the following location:
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+   ```
+   rise/android/app/build/outputs/apk/release/app-release.apk
+   ```
+
+   Replace `rise` with your actual project's directory name.
+
+---
+
+## 3. Locating Built APK Files <a name="locating-built-apk-files"></a>
+
+After building the APK, you can easily locate the generated APK files using the file paths provided in the previous section:
+
+- For release APK: `rise/android/app/build/outputs/apk/release/app-release.apk`
+
+Remember to replace `rise` with the actual name of your project's directory.
+
+---
+
+Congratulations!.
+
+For more in-depth information and troubleshooting, refer to the official documentation of [React Native](https://reactnative.dev/docs/getting-started) and [Android Studio](https://developer.android.com/studio/build/building-cmdline).
+
+If you encounter any issues beyond the scope of this documentation, don't hesitate to seek help from the team lead.
