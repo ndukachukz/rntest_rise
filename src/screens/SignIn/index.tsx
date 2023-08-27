@@ -13,13 +13,13 @@ import {useSignInMutation} from '../../services/authApi';
 import {useAppDispatch} from '../../hooks';
 import {setToken} from '../../features/auth/slice';
 
-type ProfileScreenNavigationProp = NativeStackNavigationProp<
+type SignInScreenNavigationProp = NativeStackNavigationProp<
   PublicStackNavigator,
   'SignIn'
 >;
 
 type Props = {
-  navigation: ProfileScreenNavigationProp;
+  navigation: SignInScreenNavigationProp;
 };
 
 const PasswordIcon = ({

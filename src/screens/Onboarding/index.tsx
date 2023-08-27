@@ -4,7 +4,7 @@ import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 
 import globalStyles from '../../styles';
 import styles from './styles';
-import {BASE_HORIZONTAL_PADDING, COLORS, scale} from '../../constants';
+import {COLORS} from '../../constants';
 import {Button, ChevronLeft, ChevronRight} from '../../components';
 
 interface Slide {
@@ -20,13 +20,13 @@ interface Slide {
   ): React.JSX.Element;
 }
 
-type ProfileScreenNavigationProp = NativeStackNavigationProp<
+type OnboardingScreenNavigationProp = NativeStackNavigationProp<
   PublicStackNavigator,
   'Onboarding'
 >;
 
 type Props = {
-  navigation: ProfileScreenNavigationProp;
+  navigation: OnboardingScreenNavigationProp;
 };
 
 const slides: Slide[] = [

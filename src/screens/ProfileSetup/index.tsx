@@ -19,13 +19,13 @@ import DatePicker from '../../components/form/datePicker';
 import {useSignUpMutation} from '../../services/authApi';
 import {clearAppState} from '../../features/app/slice';
 
-type ProfileScreenNavigationProp = NativeStackNavigationProp<
+type ProfileSetupScreenNavigationProp = NativeStackNavigationProp<
   PublicStackNavigator,
   'ProfileSetup'
 >;
 
 type Props = {
-  navigation: ProfileScreenNavigationProp;
+  navigation: ProfileSetupScreenNavigationProp;
 };
 
 const ProfileSetup = ({navigation}: Props) => {

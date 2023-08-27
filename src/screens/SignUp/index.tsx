@@ -24,13 +24,13 @@ import {setSignupCredentials} from '../../features/auth/slice';
 import {COLORS, scale} from '../../constants';
 import FormContainer from '../../components/form/FormContainer';
 
-type ProfileScreenNavigationProp = NativeStackNavigationProp<
+type SignUpScreenNavigationProp = NativeStackNavigationProp<
   PublicStackNavigator,
   'SignUp'
 >;
 
 type Props = {
-  navigation: ProfileScreenNavigationProp;
+  navigation: SignUpScreenNavigationProp;
 };
 
 const PasswordIcon = ({

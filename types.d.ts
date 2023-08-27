@@ -1,3 +1,7 @@
+interface IconProps extends SvgProps {
+  color?: string;
+}
+
 interface Country {
   name: string;
   flag: string;
@@ -14,8 +18,13 @@ type PublicStackNavigator = {
   ProfileSetup: undefined;
   SignupSuccess: undefined;
 };
-type ProtectedStackNavigator = {
+
+type ProtectedBottomTabsNavigator = {
   Home: undefined;
+  Plans: undefined;
+  Wallet: undefined;
+  Feed: undefined;
+  Account: undefined;
 };
 
 interface User {
