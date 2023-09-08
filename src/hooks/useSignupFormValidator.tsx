@@ -1,26 +1,23 @@
 import {useEffect, useState} from 'react';
 import * as z from 'zod';
+import {validationError} from '../utils';
 
 type Form = Pick<SignUpRequest, 'email_address' | 'password'>;
 
 const useFormValidation = () => {
   // Validation schemas
-  const registerValidationSchema = z.object({
-    email_address: z.string().email('Invalid email address'),
-    password: z
-      .string()
-      .refine(hasMinLen, {
-        message: 'Password must be at least 8 characters',
-      })
-      .refine(hasUpper, {
-        message: 'Password must have at least 1 uppercase letter',
-      })
-      .refine(hasSpecialChar, {
-        message: 'Password must have at least 1 special character',
-      }),
-  });
-
-  const validationSchema = registerValidationSchema;
+  const email_address = z.string().email('Invalid email address');
+  const password = z
+    .string()
+    .refine(hasMinLen, {
+      message: 'Password must be at least 8 characters',
+    })
+    .refine(hasUpper, {
+      message: 'Password must have at least 1 uppercase letter',
+    })
+    .refine(hasSpecialChar, {
+      message: 'Password must have at least 1 special character',
+    });
 
   const [formData, setFormData] = useState<Form>({
     email_address: '',
@@ -65,21 +62,32 @@ const useFormValidation = () => {
   }
   //  END PASSWORD RULES HELPER FUNCTIONS
 
-  const validateForm = () => {
+  const validateEmail = () => {
     try {
-      validationSchema.parse(formData);
+      email_address.parse(formData.email_address);
       setFormErrors({});
       setIsFormValid(true);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const errors: Record<string | number, string> = {};
-        error.errors.forEach(err => {
-          const field = err.path[0];
-          const message = err.message;
-          errors[field] = message;
+        validationError<Form>('email_address', error, errors => {
+          setFormErrors(errors);
+          setIsFormValid(false);
         });
-        setFormErrors(errors);
-        setIsFormValid(false);
+      }
+    }
+  };
+
+  const validatePassword = () => {
+    try {
+      password.parse(formData.password);
+      setFormErrors({});
+      setIsFormValid(true);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        validationError<Form>('password', error, errors => {
+          setFormErrors(errors);
+          setIsFormValid(false);
+        });
       }
     }
   };
@@ -89,14 +97,16 @@ const useFormValidation = () => {
   };
 
   useEffect(() => {
-    validateForm();
+    if (formData.email_address.length > 0) validateEmail();
+    if (formData.password.length > 0) validatePassword();
   }, [formData]);
 
   return {
     formData,
     formErrors,
     isFormValid,
-    validateForm,
+    validateEmail,
+    validatePassword,
     passwordRules,
     handleChange,
   };
